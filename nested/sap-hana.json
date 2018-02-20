@@ -519,7 +519,7 @@
             "value": "[concat(variables('publicIpNameDB'), '-', copyIndex())]"
           },
           "publicIPAddressType": {
-            "value": "Dynamic"
+            "value": "Static"
           }
         }
       }
