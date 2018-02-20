@@ -4,12 +4,14 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "demouser",
       "metadata": {
         "description": "Username for the Virtual Machine."
       }
     },
     "adminPassword": {
       "type": "securestring",
+      "defaultValue": "Spektra@123456",
       "metadata": {
         "description": "Password for the Virtual Machine."
       }
@@ -18,12 +20,14 @@
       "type": "string",
       "maxLength": 3,
       "minLength": 3,
+      "defaultValue": "S03",
       "metadata": {
         "description": "SAP System ID."
       }
     },
     "osType": {
       "type": "string",
+      "defaultValue": "SLES 12 BYOS",
       "allowedValues": [
         "Windows Server 2012 Datacenter",
         "Windows Server 2012 R2 Datacenter",
@@ -33,7 +37,6 @@
         "RHEL 7.2",
         "Oracle Linux 7.2"
       ],
-      "defaultValue": "Windows Server 2012 R2 Datacenter",
       "metadata": {
         "description": "The type of the operating system you want to deploy."
       }
@@ -44,7 +47,7 @@
         "SQL",
         "HANA"
       ],
-      "defaultValue": "SQL",
+      "defaultValue": "HANA",
       "metadata": {
         "description": "The type of the database"
       }
@@ -58,7 +61,7 @@
         "Large < 180.000 SAPS",
         "X-Large < 250.000 SAPS"
       ],
-      "defaultValue": "Small < 30.000 SAPS",
+      "defaultValue": "Demo",
       "metadata": {
         "description": "The size of the SAP System you want to deploy."
       }
@@ -69,7 +72,7 @@
         "HA",
         "Not HA"
       ],
-      "defaultValue": "Not HA",
+      "defaultValue": "HA",
       "metadata": {
         "description": "Determines whether this is a high available deployment or not. A HA deployment contains multiple instances of single point of failures."
       }
