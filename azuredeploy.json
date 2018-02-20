@@ -110,6 +110,7 @@
     "nestedTemplateParametersFileName": "sap-hana.parameters.json",
     "scriptFolder": "scripts/",
     "scriptFileName": "jumpvm-config.ps1",
+    "vmExtensionName": "vmExtension",
     "scriptPath": "[concat(parameters('_artifactsLocation'), variables('scriptFolder'), variables('scriptFileName'), parameters('_artifactsLocationSasToken'))]"
   },
   "resources": [
@@ -221,7 +222,7 @@
       "resources": [
         {
           "type": "Microsoft.Compute/virtualMachines/extensions",
-          "name": "customscript",
+          "name": "[concat(variables('virtualMachineName'),'/', variables('vmExtensionName'))]",
           "apiVersion": "2015-06-15",
           "location": "[resourceGroup().location]",
           "dependsOn": [
