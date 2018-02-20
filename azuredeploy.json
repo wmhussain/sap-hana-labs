@@ -79,7 +79,7 @@
       "metadata": {
         "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
       },
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-3-tier-marketplace-image-multi-sid-db-md/"
+      "defaultValue": "https://raw.githubusercontent.com/wmhussain/sap-hana-labs/master/"
     },
     "_artifactsLocationSasToken": {
       "type": "securestring",
@@ -105,10 +105,12 @@
     "dnsNameForPublicIP": "[uniqueString(resourceGroup().id)]",
     "scriptFolder": "scripts",
     "scriptFileName": "jumpvm-config.ps1",
-    "fileToBeCopied": "FileToBeCopied.txt",
     "nestedTemplateFolder": "nested",
     "nestedTemplateFileName": "sap-hana.json",
-    "nestedTemplateParametersFileName": "sap-hana.parameters.json"
+    "nestedTemplateParametersFileName": "sap-hana.parameters.json",
+    "scriptFolder": "scripts/",
+    "scriptFileName": "jumpvm-config.ps1",
+    "scriptPath": "[concat(parameters('_artifactsLocation'), variables('scriptFolder'), variables('scriptFileName'), parameters('_artifactsLocationSasToken'))]"
   },
   "resources": [
     {
@@ -218,8 +220,8 @@
       },
       "resources": [
         {
-          "type": "extensions",
-          "name": "CustomScriptExtension",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "name": "[concat(parameters('vmName'),'/customscript'",
           "apiVersion": "2015-06-15",
           "location": "[resourceGroup().location]",
           "dependsOn": [
@@ -232,9 +234,9 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-
+                "[variables('scriptPath')]"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('scriptFolder'), '/', variables('scriptFileName'))]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ',  variables('scriptFileName'), ' >> script.log 2>&1' )]"
             }
           }
         }
