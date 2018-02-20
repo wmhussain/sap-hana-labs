@@ -99,7 +99,7 @@
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnet0Name'))]",
     "subnetID": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnet1Name'))]",
     "vmName": "s03-hana-0",
-    "virtualNetworkName": " hana-s03-vnet",
+    "virtualNetworkName": "sap-hana-s03-vnet",
     "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "publicIPAddressName": "s03-hana-0-ip",
     "dnsNameForPublicIP": "[uniqueString(resourceGroup().id)]",
