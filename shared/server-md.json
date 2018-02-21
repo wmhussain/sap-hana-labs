@@ -87,7 +87,7 @@
       }
     },
     "dataDisksObj": {
-      "type": "string",
+      "type": "object",
       "metadata": {
         "description": "Information about the data disks that the VM should have."
       }
@@ -142,36 +142,7 @@
         "storageProfile": {
           "imageReference": "[parameters('imageReference')]",
           "osDisk": "[parameters('osDisk')]",
-          "dataDisks": [
-            {
-              "name": "dataDisk0",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk1",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk2",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk3",
-              "diskSizeGB": 128,
-              "lun": 3,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-                       ]
+          "dataDisks": "[parameters('dataDisksObj').dataDisks]"
         },
         "networkProfile": "[variables('networkProfile')]"
       },
@@ -186,36 +157,7 @@
         "storageProfile": {
           "imageReference": "[parameters('imageReference')]",
           "osDisk": "[parameters('osDisk')]",
-          "dataDisks": [
-            {
-              "name": "dataDisk0",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk1",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk2",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk3",
-              "diskSizeGB": 128,
-              "lun": 3,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-                       ]
+          "dataDisks": "[parameters('dataDisksObj').dataDisks]"
         },
         "networkProfile": "[variables('networkProfile')]"
       },
@@ -224,36 +166,7 @@
         "hardwareProfile": "[variables('hardwareProfile')]",
         "storageProfile": {
           "osDisk": "[parameters('osDisk')]",
-          "dataDisks": [
-            {
-              "name": "dataDisk0",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk1",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk2",
-              "diskSizeGB": "[parameters('dataDisksObj')]",
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk3",
-              "diskSizeGB": 128,
-              "lun": 3,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-                       ]
+          "dataDisks": "[parameters('dataDisksObj').dataDisks]"
         },
         "networkProfile": "[variables('networkProfile')]"
       }
