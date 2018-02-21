@@ -628,7 +628,7 @@
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "[concat('172.16.1.1',copyIndex())]",
+              "privateIPAddress": "[concat('172.17.1.1',copyIndex())]",
               "publicIPAddress": "[reference(concat(variables('nestedDeploymentNameNICDB'), '-', copyIndex())).outputs.selectedConfiguration.value.publicIPAddress]",
               "subnet": "[reference(concat(variables('nestedDeploymentNameNICDB'), '-', copyIndex())).outputs.selectedConfiguration.value.subnet]",
               "loadBalancerBackendAddressPools": "[reference(variables('nestedDeploymentNameLBDB')).outputs.nicBackAddressPools.value]"
