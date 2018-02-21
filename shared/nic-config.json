@@ -55,11 +55,15 @@
         "subnet": {
           "id": "[parameters('subnetId')]"
         },
-        "publicIPAddress": null,
-        "networkSecurityGroup": null
+        "publicIPAddress": {
+          "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpName'))]"
+        },
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+        }
       }
     },
-    "selectedConfiguration": "[variables('nicConfigurations')[string(equals(length(parameters('subnetId')), 1))]]"
+    "selectedConfiguration": "[variables('nicConfigurations')[string(equals(length(parameters('subnetId')), 0))]]"
   },
   "resources": [
   ],
