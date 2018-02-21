@@ -741,36 +741,7 @@
             "value": "[concat(variables('nicNameDB'), '-', copyIndex())]"
           },
           "dataDisksObj": {
-            "value": [
-            {
-              "name": "dataDisk0",
-              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
-              "lun": 0,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk1",
-              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
-              "lun": 1,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk2",
-              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
-              "lun": 2,
-              "caching": "ReadOnly",
-              "createOption": "Empty"
-            },
-            {
-              "name": "dataDisk3",
-              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
-              "lun": 3,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-            ]
+            "value": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]"
           },
           "osType": {
             "value": "[variables('internalOSType')]"
