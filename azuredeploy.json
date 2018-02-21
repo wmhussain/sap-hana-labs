@@ -303,8 +303,7 @@
     	"Username": {
       "type": "string",
       "Value": "parameters('adminUsername')"
-      }
-    },
+      },
     "Password": {
       "type": "string",
       "Value": "parameters('adminPassword')"
