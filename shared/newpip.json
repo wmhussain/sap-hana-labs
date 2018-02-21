@@ -33,7 +33,7 @@
   ],
     "outputs": {
         "linuxVmDnsName": {
-            "type": "String",
+            "type": "string",
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIpName'))).dnsSettings.fqdn]"
         }
     }
