@@ -741,7 +741,19 @@
             "value": "[concat(variables('nicNameDB'), '-', copyIndex())]"
           },
           "dataDisksObj": {
-            "value": "512"
+            "value": {
+              "copy": [
+                {
+                  "name": "dataDisks",
+                  "count": "[length(variables('dbvmDataDisks'))]",
+                  "input": {
+                    "lun": "[copyIndex('dataDisks')]",
+                    "createOption": "Empty",
+                    "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]"
+                  }
+                }
+              ]
+            }
           },
           "osType": {
             "value": "[variables('internalOSType')]"
