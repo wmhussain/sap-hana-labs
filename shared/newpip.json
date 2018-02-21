@@ -30,5 +30,11 @@
         }
       }
     }
-  ]
+  ],
+    "outputs": {
+        "linuxVmDnsName": {
+            "type": "String",
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIpName'))).dnsSettings.fqdn]"
+        }
+    }
 }
