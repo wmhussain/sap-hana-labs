@@ -763,11 +763,11 @@
     }
   ],
   "outputs": {
-       "linuxvm-0-dns": {
+       "linuxvm0dns": {
             "type": "string",
             "value": "[reference('nestedTemplatenicpip-0').outputs.linuxVmDnsName.value]"
         },
-        "linuxvm-1-dns": {
+        "linuxvm1dns": {
             "type": "string",
             "value": "[reference('nestedTemplatenicpip-1').outputs.linuxVmDnsName.value]"
         } 
