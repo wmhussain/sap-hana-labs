@@ -742,17 +742,34 @@
           },
           "dataDisksObj": {
             "value": {
-              "copy": [
-                {
-                  "name": "dataDisks",
-                  "count": "[length(variables('dbvmDataDisks'))]",
-                  "input": {
-                    "lun": "[copyIndex('dataDisks')]",
-                    "createOption": "Empty",
-                    "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]"
-                  }
-                }
-              ]
+            {
+              "name": "dataDisk0",
+              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
+              "lun": 0,
+              "caching": "ReadOnly",
+              "createOption": "Empty"
+            },
+            {
+              "name": "dataDisk1",
+              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
+              "lun": 1,
+              "caching": "ReadOnly",
+              "createOption": "Empty"
+            },
+            {
+              "name": "dataDisk2",
+              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
+              "lun": 2,
+              "caching": "ReadOnly",
+              "createOption": "Empty"
+            },
+            {
+              "name": "dataDisk3",
+              "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
+              "lun": 3,
+              "caching": "None",
+              "createOption": "Empty"
+            }
             }
           },
           "osType": {
