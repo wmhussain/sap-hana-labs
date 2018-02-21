@@ -166,7 +166,7 @@
         "hardwareProfile": "[variables('hardwareProfile')]",
         "storageProfile": {
           "osDisk": "[parameters('osDisk')]",
-          "dataDisks": "[parameters('dataDisksObj').dataDisks]"
+          "dataDisks": "[parameters('dataDisksObj')]"
         },
         "networkProfile": "[variables('networkProfile')]"
       }
