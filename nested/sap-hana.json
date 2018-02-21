@@ -741,7 +741,7 @@
             "value": "[concat(variables('nicNameDB'), '-', copyIndex())]"
           },
           "dataDisksObj": {
-            "value": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]"
+            "value": "512"
           },
           "osType": {
             "value": "[variables('internalOSType')]"
