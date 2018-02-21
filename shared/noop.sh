@@ -49,5 +49,5 @@ log "Creating media directory"
 mkdir -m 777 /hana/shared/media
 
 log "Adding host entried to resolve by name in hosts file"
-echo "172.16.1.10    s03-db-0" >> /etc/hosts
-echo "172.16.1.11    s03-db-1" >> /etc/hosts
+echo "172.17.1.10    s03-db-0" >> /etc/hosts
+echo "172.17.1.11    s03-db-1" >> /etc/hosts
