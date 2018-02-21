@@ -51,3 +51,13 @@ mkdir -m 777 /hana/shared/media
 log "Adding host entried to resolve by name in hosts file"
 echo "172.17.1.10    s03-db-0" >> /etc/hosts
 echo "172.17.1.11    s03-db-1" >> /etc/hosts
+
+zypper addrepo https://download.opensuse.org/repositories/network/SLE_12_SP3/network.repo && zypper --gpg-auto-import-keys ref
+yast -i sshpass
+
+ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -b 4096 -N ''
+if [ "$HOSTNAME" == "s03-db-0" ]; then
+	sshpass -p 'demoPassword1!' ssh-copy-id dbadmin@s03-db-1
+else
+	sshpass -p 'demoPassword1!' ssh-copy-id dbadmin@s03-db-0
+fi
