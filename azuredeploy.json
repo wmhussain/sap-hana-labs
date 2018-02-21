@@ -117,7 +117,7 @@
   },
   "resources": [
     {
-      "apiVersion": "2017-10-01",
+      "apiVersion": "2016-09-01",
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "[variables('publicIPAddressName')]",
       "location": "[resourceGroup().location]",
@@ -129,7 +129,7 @@
       }
     },
     {
-      "apiVersion": "2017-10-01",
+      "apiVersion": "2016-09-01",
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
       "location": "[resourceGroup().location]",
@@ -157,7 +157,7 @@
       }
     },
     {
-      "apiVersion": "2017-10-01",
+      "apiVersion": "2016-09-01",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[variables('nicName')]",
       "location": "[resourceGroup().location]",
@@ -183,7 +183,7 @@
       }
     },
     {
-      "apiVersion": "2017-12-01",
+      "apiVersion": "2016-04-30-preview",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[variables('vmName')]",
       "location": "[resourceGroup().location]",
@@ -225,7 +225,7 @@
         {
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
-          "apiVersion": "2017-12-01",
+          "apiVersion": "2015-06-15",
           "location": "[resourceGroup().location]",
           "dependsOn": [
             "[variables('vmName')]"
@@ -248,7 +248,7 @@
     {
       "name": "sap-hana-nested",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
+      "apiVersion": "2016-09-01",
       "dependsOn": [
         "[variables('vmName')]"
       ],
