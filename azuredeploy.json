@@ -246,7 +246,7 @@
       ]
     },
     {
-      "name": "hana-sap-nested",
+      "name": "sap-hana-nested",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [
