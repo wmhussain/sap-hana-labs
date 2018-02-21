@@ -310,11 +310,11 @@
       },
        "linuxvm-0-dns": {
             "type": "string",
-            "value": "[reference('sap-hana-nested').outputs.linuxvm-0-dns.value]"
+            "value": "[reference('sap-hana-nested').outputs.linuxvm0dns.value]"
         },
         "linuxvm-1-dns": {
             "type": "string",
-            "value": "[reference('sap-hana-nested').outputs.linuxvm-1-dns.value]"
+            "value": "[reference('sap-hana-nested').outputs.linuxvm1dns.value]"
         } 
   }
 }
