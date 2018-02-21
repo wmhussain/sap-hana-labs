@@ -4,14 +4,14 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
-      "defaultValue": "demouser",
+      "defaultValue": "demoadmin",
       "metadata": {
         "description": "Username for the Virtual Machine."
       }
     },
     "adminPassword": {
       "type": "securestring",
-      "defaultValue": "Spektra@123456",
+      "defaultValue": "demoPassword1!",
       "metadata": {
         "description": "Password for the Virtual Machine."
       }
@@ -27,7 +27,6 @@
     },
     "osType": {
       "type": "string",
-      "defaultValue": "SLES 12 BYOS",
       "allowedValues": [
         "Windows Server 2012 Datacenter",
         "Windows Server 2012 R2 Datacenter",
@@ -37,6 +36,7 @@
         "RHEL 7.2",
         "Oracle Linux 7.2"
       ],
+      "defaultValue": "SLES 12 BYOS",
       "metadata": {
         "description": "The type of the operating system you want to deploy."
       }
@@ -102,12 +102,11 @@
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnet0Name'))]",
     "subnetID": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnet1Name'))]",
     "vmName": "s03-hana-0",
-    "virtualNetworkName": "sap-hana-s03-vnet",
+    "virtualNetworkName": "s03-vnet",
     "vnetId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "publicIPAddressName": "s03-hana-0-ip",
-    "dnsNameForPublicIP": "[uniqueString(resourceGroup().id)]",
-    "scriptFolder": "scripts",
-    "scriptFileName": "jumpvm-config.ps1",
+    "dnsNameForPublicIP": "[concat(variables('vmName'),uniqueString(resourceGroup().id))]",
+    "fileToBeCopied": "FileToBeCopied.txt",
     "nestedTemplateFolder": "nested",
     "nestedTemplateFileName": "sap-hana.json",
     "nestedTemplateParametersFileName": "sap-hana.parameters.json",
@@ -251,7 +250,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+        "[variables('subnet1Name')]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -291,6 +290,7 @@
             "value": "[parameters('_artifactsLocationSasToken')]"
 
           }
+
         }
       }
     }
