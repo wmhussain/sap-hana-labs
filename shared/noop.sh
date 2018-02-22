@@ -59,8 +59,6 @@ echo "172.17.1.11    s03-db-1" >> /etc/hosts
 log "enable root login for cluster level root access across nodes"
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
-log "restart SSH service"
-systemctl restart sshd
 
 #log "configureing root password"
 #echo "root:6fhTyhkm6M7S66Fc" | chpasswd
@@ -73,13 +71,18 @@ systemctl restart sshd
 #log "copy ssh key to other nodes"
 #sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.10 -o StrictHostKeyChecking=no
 #sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.11 -o StrictHostKeyChecking=no
-
+log "downloading ssh key pair"
 mkdir $HOME/.ssh
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id_rsa -O $HOME/.ssh/id_rsa
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O $HOME/.ssh/id_rsa.pub 
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O $HOME/.ssh/authorized_keys
+
+log "configure permission for ssh key pair"
 chmod 700 $HOME/.ssh
 chmod 600 $HOME/.ssh/id_rsa
 chmod 644 $HOME/.ssh/id_rsa.pub
 chmod 600 $HOME/.ssh/authorized_keys
+
+log "restart SSH service"
+systemctl restart sshd
 
