@@ -85,12 +85,6 @@ chmod 600 /root/.ssh/id_rsa
 chmod 644 /root/.ssh/id_rsa.pub
 chmod 600 /root/.ssh/authorized_keys
 
-log "download SAP media"
-mkdir /SAPMedia
-wget https://spektraazurelabs.blob.core.windows.net/saplabs/SAP.zip -O /mnt/resource/SAP.zip
-unzip /mnt/resource/SAP.zip -d /SAPMedia
-#rm /SAPMedia/SAP.zip
-
 log "add cloud service"
 zypper as https://scc.suse.com/access/services/1203?credentials=Public_Cloud_Module_12_x86_64 Public_Cloud_Module_12_x86_64
 
@@ -101,10 +95,11 @@ wget https://spektraazurelabs.blob.core.windows.net/saplabs/Public_Cloud_Module_
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/Public_Cloud_Module_12_x86_64%3ASLE-Module-Public-Cloud12-Source-Pool.repo -P /etc/zypp/repos.d
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/Public_Cloud_Module_12_x86_64%3ASLE-Module-Public-Cloud12-Updates.repo -P /etc/zypp/repos.d
 
-
-
-
-
+log "download SAP media"
+mkdir /SAPMedia
+wget https://spektraazurelabs.blob.core.windows.net/saplabs/SAP.zip -O /mnt/resource/SAP.zip
+unzip /mnt/resource/SAP.zip -d /SAPMedia
+#rm /SAPMedia/SAP.zip
 
 log "restart SSH service"
 systemctl restart sshd
