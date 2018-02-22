@@ -125,9 +125,14 @@
             "networkInterfaces": [{
                 "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('nicName'))]"
             }]
-        },
-        "availableProperties": {
-            "image": {
+        }
+    },
+    "resources": [{
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('vmName')]",
+            "apiVersion": "2017-03-30",
+            "location": "[resourceGroup().location]",
+            "properties": {
                 "availabilitySet": "[variables('internalAVSetObj')]",
                 "hardwareProfile": "[variables('hardwareProfile')]",
                 "osProfile": {
@@ -138,26 +143,22 @@
                 "storageProfile": {
                     "imageReference": "[parameters('imageReference')]",
                     "osDisk": "[parameters('osDisk')]",
-                    "dataDisks": {
-                        {
+                    "dataDisks": [{
                             "name": "dataDisk0",
                             "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
                             "lun": 0,
-                            "caching": "ReadOnly",
                             "createOption": "Empty"
                         },
                         {
                             "name": "dataDisk1",
                             "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
                             "lun": 1,
-                            "caching": "ReadOnly",
                             "createOption": "Empty"
                         },
                         {
                             "name": "dataDisk2",
                             "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]",
                             "lun": 2,
-                            "caching": "ReadOnly",
                             "createOption": "Empty"
                         },
                         {
@@ -167,19 +168,10 @@
                             "caching": "None",
                             "createOption": "Empty"
                         }
-                    }
+                    ]
                 },
                 "networkProfile": "[variables('networkProfile')]"
             }
-        },
-        "internalProperties": "[variables('availableProperties')[parameters('osDiskType')]]"
-    },
-    "resources": [{
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[parameters('vmName')]",
-            "apiVersion": "2017-03-30",
-            "location": "[resourceGroup().location]",
-            "properties": "[variables('internalProperties')]"
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
