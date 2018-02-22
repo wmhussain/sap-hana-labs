@@ -60,8 +60,8 @@ log "enable root login for cluster level root access across nodes"
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
 
-#log "configureing root password"
-#echo "root:6fhTyhkm6M7S66Fc" | chpasswd
+log "configureing root password"
+echo "root:6fhTyhkm6M7S66Fc" | chpasswd
 
 #log "generating SSH key pair"
 #ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -b 4096 -N ''
