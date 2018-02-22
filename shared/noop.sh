@@ -73,15 +73,16 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 #sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.11 -o StrictHostKeyChecking=no
 log "downloading ssh key pair"
 mkdir $HOME/.ssh
-wget https://spektraazurelabs.blob.core.windows.net/saplabs/id_rsa -O $HOME/.ssh/id_rsa
-wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O $HOME/.ssh/id_rsa.pub 
-wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O $HOME/.ssh/authorized_keys
+wget https://spektraazurelabs.blob.core.windows.net/saplabs/id_rsa -O /root/.ssh/id_rsa
+wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O /root/.ssh/id_rsa.pub 
+wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O /root/.ssh/authorized_keys
 
 log "configure permission for ssh key pair"
-chmod 700 $HOME/.ssh
-chmod 600 $HOME/.ssh/id_rsa
-chmod 644 $HOME/.ssh/id_rsa.pub
-chmod 600 $HOME/.ssh/authorized_keys
+chown -R root:root /root/.ssh
+chmod 700 /root/.ssh
+chmod 600 /root/.ssh/id_rsa
+chmod 644 /root/.ssh/id_rsa.pub
+chmod 600 /root/.ssh/authorized_keys
 
 log "restart SSH service"
 systemctl restart sshd
