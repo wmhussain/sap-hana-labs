@@ -63,15 +63,6 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 log "configureing root password"
 echo "root:6fhTyhkm6M7S66Fc" | chpasswd
 
-#log "generating SSH key pair"
-#ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -b 4096 -N ''
-
-#install sshpass in sles
-
-#log "copy ssh key to other nodes"
-#sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.10 -o StrictHostKeyChecking=no
-#sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.11 -o StrictHostKeyChecking=no
-
 log "downloading ssh key pair"
 mkdir /root/.ssh
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id_rsa -O /root/.ssh/id_rsa
