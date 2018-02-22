@@ -51,3 +51,18 @@ mkdir -m 777 /hana/shared/media
 log "Adding host entried to resolve by name in hosts file"
 echo "172.17.1.10    s03-db-0" >> /etc/hosts
 echo "172.17.1.11    s03-db-1" >> /etc/hosts
+
+log "enable root login for cluster level root access across nodes"
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
+log "configureing root password"
+echo "root:6fhTyhkm6M7S66Fc" | chpasswd
+
+log "generating SSH key pair"
+ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -b 4096 -N ''
+
+#install sshpass in sles
+
+log "copy ssh key to other nodes"
+sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.10 -o StrictHostKeyChecking=no
+sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.11 -o StrictHostKeyChecking=no
