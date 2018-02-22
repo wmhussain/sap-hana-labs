@@ -73,7 +73,7 @@ echo "root:6fhTyhkm6M7S66Fc" | chpasswd
 #sshpass -p 6fhTyhkm6M7S66Fc ssh-copy-id  root@172.17.1.11 -o StrictHostKeyChecking=no
 
 log "downloading ssh key pair"
-mkdir $HOME/.ssh
+mkdir /root/.ssh
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id_rsa -O /root/.ssh/id_rsa
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O /root/.ssh/id_rsa.pub 
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/id-rsa.pub -O /root/.ssh/authorized_keys
