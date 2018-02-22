@@ -8,8 +8,12 @@ function log()
 }
 
 
-
 log "noop"
+
+
+log "SUSE tril subscription"
+SUSEConnect --url=https://scc.suse.com -e mazhar@spektrasystems.com -r 868E7EFC8D8DB8
+sleep 10
 
 log "creating PVs"
 pvcreate /dev/sdc
@@ -78,3 +82,4 @@ chmod 700 $HOME/.ssh
 chmod 600 $HOME/.ssh/id_rsa
 chmod 644 $HOME/.ssh/id_rsa.pub
 chmod 600 $HOME/.ssh/authorized_keys
+
