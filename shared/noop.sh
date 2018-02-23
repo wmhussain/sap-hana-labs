@@ -58,7 +58,7 @@ echo "172.17.1.11    s03-db-1" >> /etc/hosts
 
 log "enable root login for cluster level root access across nodes"
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-
+echo "StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 
 #log "configureing root password"
 #echo "root:6fhTyhkm6M7S66Fc" | chpasswd
