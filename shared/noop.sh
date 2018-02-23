@@ -79,7 +79,7 @@ chmod 600 /root/.ssh/authorized_keys
 log "download SAP media"
 mkdir /SAPMedia
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/SAP.zip -O /mnt/resource/SAP.zip
-unzip /mnt/resource/SAP.zip -d /SAPMedia
+unzip /mnt/resource/SAP.zip -d /hana/shared/media/
 #rm /SAPMedia/SAP.zip
 
 log "restart SSH service"
