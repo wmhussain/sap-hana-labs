@@ -300,14 +300,6 @@
       "type": "string",
       "value": "[reference(variables('publicIPAddressName'), '2017-10-01').dnsSettings.fqdn]"
     },
-    	"Username": {
-      "type": "string",
-      "Value": "[parameters('adminUsername')]"
-      },
-    "Password": {
-      "type": "string",
-      "Value": "[parameters('adminPassword')]"
-      },
        "linuxvm-0-dns": {
             "type": "string",
             "value": "[reference('sap-hana-nested').outputs.linuxvm0dns.value]"
@@ -315,6 +307,14 @@
         "linuxvm-1-dns": {
             "type": "string",
             "value": "[reference('sap-hana-nested').outputs.linuxvm1dns.value]"
-        } 
+        },
+    "Username": {
+      "type": "string",
+      "Value": "[parameters('adminUsername')]"
+      },
+    "Password": {
+      "type": "string",
+      "Value": "[parameters('adminPassword')]"
+      }, 
   }
 }
