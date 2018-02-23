@@ -77,7 +77,6 @@ chmod 644 /root/.ssh/id_rsa.pub
 chmod 600 /root/.ssh/authorized_keys
 
 log "download SAP media"
-mkdir /SAPMedia
 wget https://spektraazurelabs.blob.core.windows.net/saplabs/SAP.zip -O /mnt/resource/SAP.zip
 unzip /mnt/resource/SAP.zip -d /hana/shared/media/
 chmod -R +x /hana/shared/media/SAP-Media/
