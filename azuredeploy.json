@@ -239,7 +239,7 @@
               "fileUris": [
                 "[variables('scriptPath')]"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ',  variables('scriptFileName'), ' >> script.log 2>&1' )]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ',  variables('scriptFileName'), ' https://saphanalabs', resourceGroup().location, '.blob.core.windows.net/saplabs/HDB_STUDIO_WINDOWS_X86_64.zip', ' >> script.log 2>&1' )]"
             }
           }
         }
