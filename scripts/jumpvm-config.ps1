@@ -6,6 +6,6 @@ $Url = "https://spektraazurelabs.blob.core.windows.net/saplabs/WinSCP-5.13-Setup
 Invoke-WebRequest -Uri "$Url" -OutFile "C:\Packages\WinSCP-5.13-Setup.exe"
 C:\Packages\WinSCP-5.13-Setup.exe  /VERYSILENT | Out-Null
 
-$URL = "https://spektraazurelabs.blob.core.windows.net/saplabs/SAP.zip"
-#Invoke-WebRequest -Uri "$Url" -OutFile "C:\Packages\SAP.zip" | Out-Null
-#Expand-Archive -Path C:\Packages\SAP.zip -DestinationPath C:\Packages\ | Out-Null
+$URL = "https://saphanalabs.blob.core.windows.net/saplabs/HDB_STUDIO_WINDOWS_X86_64.zip"
+Invoke-WebRequest -Uri "$Url" -OutFile "C:\Packages\HDB_STUDIO_WINDOWS_X86_64.zip" | Out-Null
+Expand-Archive -Path C:\Packages\HDB_STUDIO_WINDOWS_X86_64.zip -DestinationPath C:\Packages\ | Out-Null
