@@ -736,6 +736,7 @@
                   "count": "[length(variables('dbvmDataDisks'))]",
                   "input": {
                     "lun": "[copyIndex('dataDisks')]",
+                    "caching": "ReadWrite",
                     "createOption": "Empty",
                     "diskSizeGB": "[variables('dbvmDataDisks')[copyIndex('dataDisks')].size]"
                   }
