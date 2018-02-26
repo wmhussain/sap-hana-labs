@@ -80,7 +80,6 @@ log "download SAP media"
 wget https://saphanalabs${1}.blob.core.windows.net/saplabs/SAP.zip -O /hana/shared/media/SAP.zip
 unzip /hana/shared/media/SAP.zip -d /hana/shared/media/
 mv /hana/shared/media/SAP/* /hana/shared/media/
-rm -r /hana/shared/media/SAP
 chmod -R +x /hana/shared/media/SAP-Media/
 #rm /SAPMedia/SAP.zip
 
