@@ -78,6 +78,7 @@ chmod 600 /root/.ssh/authorized_keys
 
 log "download SAP media"
 wget https://saphanalabs${1}.blob.core.windows.net/saplabs/SAP.zip -O /hana/shared/media/SAP.zip
+chmod +x /hana/shared/media/SAP.zip
 unzip /hana/shared/media/SAP.zip -d /hana/shared/media/
 mv /hana/shared/media/SAP/* /hana/shared/media/
 chmod -R +x /hana/shared/media/SAP-Media/
