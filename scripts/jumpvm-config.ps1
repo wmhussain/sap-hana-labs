@@ -9,3 +9,6 @@ C:\Packages\WinSCP-5.13-Setup.exe  /VERYSILENT | Out-Null
 $URL = "https://saphanalabseastus.blob.core.windows.net/saplabs/HDB_STUDIO_WINDOWS_X86_64.zip"
 Invoke-WebRequest -Uri "$URL" -OutFile "C:\Packages\HDB_STUDIO_WINDOWS_X86_64.zip" | Out-Null
 Expand-Archive -Path C:\Packages\HDB_STUDIO_WINDOWS_X86_64.zip -DestinationPath C:\Packages\ | Out-Null
+
+$Url = "https://saphanalabseastus.blob.core.windows.net/saplabs/SAPHANAonAzure_Lab_Commands_v1.0.txt"
+Invoke-WebRequest -Uri "$Url" -OutFile "C:\Users\Public\Desktop\SAPHANAonAzure_Lab_Commands.txt"
