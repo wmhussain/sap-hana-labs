@@ -12,7 +12,7 @@ log "noop"
 
 
 log "SUSE tril subscription"
-SUSEConnect --url=https://scc.suse.com -e jithin.varghese@spektrasystems.com -r 63D1FE006EBE3C
+SUSEConnect --url=https://scc.suse.com -e fasal.zaman@spektrasystems.com -r FAA140B9E749C0
 sleep 10
 
 log "creating PVs"
